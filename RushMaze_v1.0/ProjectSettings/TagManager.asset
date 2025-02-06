@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 3881126265
+    locked: 0
+  - name: ForeGround
+    uniqueID: 291414625
+    locked: 0
   - name: Player
     uniqueID: 3219512355
     locked: 0
