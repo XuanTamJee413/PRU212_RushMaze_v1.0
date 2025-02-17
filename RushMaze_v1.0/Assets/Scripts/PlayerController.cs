@@ -26,21 +26,20 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        HandleCrouch();
-        HandleJump();
-        UpdateAnimation();
+        //HandleCrouch();
+        //HandleJump();
+        //UpdateAnimation();
     }
 
     private void HandleMovement()
     {
-        // di chuyen trai phai va lat nhan vat 
-        float moveInput = Input.GetAxis("Horizontal");
+        float moveInputX = Input.GetAxis("Horizontal");
+        float moveInputY = Input.GetAxis("Vertical");
 
-        float currentSpeed = (Input.GetAxisRaw("Vertical") < 0) ? moveSpeed * 0.5f : moveSpeed;
+        rb.linearVelocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);
 
-        rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
-        if (moveInput > 0) transform.localScale = new Vector3(1, 1, 1);
-        else if (moveInput < 0) transform.localScale = new Vector3(-1, 1, 1);
+        if (moveInputX > 0) transform.localScale = new Vector3(1, 1, 1);
+        else if (moveInputX < 0) transform.localScale = new Vector3(-1, 1, 1);
     }
 
     private void HandleJump()
