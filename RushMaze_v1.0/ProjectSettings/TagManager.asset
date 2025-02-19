@@ -38,11 +38,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Ground
     uniqueID: 3881126265
+    locked: 0
+  - name: Rock
+    uniqueID: 749148613
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: ForeGround
     uniqueID: 291414625
