@@ -9,11 +9,12 @@ public class MazeGenerator : MonoBehaviour
     public float wallWidth = 1.0f;
     public int centerSize = 3;
 
-    private int exitX, exitY; // Lưu vị trí cổng ra
+    public int exitX, exitY; // Lưu vị trí cổng ra
 
     public GameObject wallPrefab;
     public GameObject pathPrefab;
     public GameObject player;
+    
 
     private int[,] maze;
 
@@ -152,4 +153,10 @@ public class MazeGenerator : MonoBehaviour
             }
         }
     }
+
+    public int[,] GetMaze()
+    {
+        return maze;
+    }
+
 }
