@@ -5,7 +5,7 @@ public class MenuController : MonoBehaviour
 {
     public void PlayButton()
     {
-        SceneManager.LoadScene("MazeScene");
+        SceneManager.LoadScene("LobbyScene");
     }
 
     public void OptionsButton()
