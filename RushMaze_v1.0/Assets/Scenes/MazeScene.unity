@@ -300,10 +300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8440ed8ad2116743a5c1e570c41a24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeWidth: 20
-  mazeHeight: 20
-  pathWidth: 3
-  wallWidth: 3
+  mazeWidth: 50
+  mazeHeight: 50
+  pathWidth: 2
+  wallWidth: 2
   centerSize: 1
   wallPrefab: {fileID: 626067729061553690, guid: 2b50b358ba6bc884bb7ed090f5fa4050, type: 3}
   pathPrefab: {fileID: 654103220991858697, guid: 778e93bf466660a4fb3fa7fa1cc80dc8, type: 3}
