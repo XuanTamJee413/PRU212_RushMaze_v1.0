@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,59 +26,26 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        HandleCrouch();
-        HandleJump();
         UpdateAnimation();
     }
 
     private void HandleMovement()
     {
-        // di chuyen trai phai va lat nhan vat 
-        float moveInput = Input.GetAxis("Horizontal");
+        float moveInputX = Input.GetAxis("Horizontal");
+        float moveInputY = Input.GetAxis("Vertical");
 
-        float currentSpeed = (Input.GetAxisRaw("Vertical") < 0) ? moveSpeed * 0.5f : moveSpeed;
+        rb.linearVelocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);
 
-        rb.linearVelocity = new Vector2(moveInput * currentSpeed, rb.linearVelocity.y);
-        if (moveInput > 0) transform.localScale = new Vector3(1, 1, 1);
-        else if (moveInput < 0) transform.localScale = new Vector3(-1, 1, 1);
-    }
-
-    private void HandleJump()
-    {
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        if ((Input.GetButtonDown("Jump") || verticalInput > 0) && isGrounded)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        }
-        else if (verticalInput < 0)
-        {
-            //HandleCrouch();
-        }
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
-    private void HandleCrouch()
-    {
-        float verticalInput = Input.GetAxisRaw("Vertical");
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        if (verticalInput < 0)
-        {
-            if (transform.localScale.x > 0) transform.rotation = Quaternion.Euler(0, 0, -90);
-            else if (transform.localScale.x < 0) transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+        if (moveInputX > 0) transform.localScale = new Vector3(1, 1, 1);
+        else if (moveInputX < 0) transform.localScale = new Vector3(-1, 1, 1);
     }
 
 
     private void UpdateAnimation()
     {
-        bool isRunning = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
-        bool isJumping = !isGrounded;
-        animator.SetBool("isRunning", isRunning);
-        animator.SetBool("isJumping", isJumping);
+        bool isMoving = rb.linearVelocity.magnitude > 0.1f;
+
+        animator.SetBool("PlayerRun", isMoving);
+        animator.SetBool("PlayerIdle", !isMoving);
     }
 }
