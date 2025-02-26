@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 7889713839ac67548ac05b0f588fab99
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8582710559621652407
+    second: "\u2014Pngtree\u2014game buttons set with orange_6057998_0"
+  - first:
+      213: -8318206633819519172
+    second: "\u2014Pngtree\u2014game buttons set with orange_6057998_1"
+  - first:
+      213: -6646780025604652970
+    second: "\u2014Pngtree\u2014game buttons set with orange_6057998_2"
+  - first:
+      213: -932390162965990893
+    second: "\u2014Pngtree\u2014game buttons set with orange_6057998_3"
+  - first:
+      213: 1177844666172860013
+    second: "\u2014Pngtree\u2014game buttons set with orange_6057998_4"
+  - first:
+      213: -6567240308097768446
+    second: "\u2014Pngtree\u2014game buttons set with orange_6057998_5"
+  - first:
+      213: -6292929301705569717
+    second: "\u2014Pngtree\u2014game buttons set with orange_6057998_6"
+  - first:
+      213: -5580671613302192625
+    second: "\u2014Pngtree\u2014game buttons set with orange_6057998_7"
+  - first:
+      213: -4199473141436371192
+    second: "\u2014Pngtree\u2014game buttons set with orange_6057998_8"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014game buttons set with orange_6057998_0"
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 747
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bf1e34e7c9eb1770800000000000000
+      internalID: 8582710559621652407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014game buttons set with orange_6057998_1"
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 757
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c37c3e6632bcf8c80800000000000000
+      internalID: -8318206633819519172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014game buttons set with orange_6057998_2"
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 757
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6504ca968c4e1c3a0800000000000000
+      internalID: -6646780025604652970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014game buttons set with orange_6057998_3"
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 520
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 312f758361c7f03f0800000000000000
+      internalID: -932390162965990893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014game buttons set with orange_6057998_4"
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 495
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6662dfbb7b885010800000000000000
+      internalID: 1177844666172860013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014game buttons set with orange_6057998_5"
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 515
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 204a4390cb97cd4a0800000000000000
+      internalID: -6567240308097768446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014game buttons set with orange_6057998_6"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 315
+        width: 191
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a413734260ba8a0800000000000000
+      internalID: -6292929301705569717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014game buttons set with orange_6057998_7"
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 253
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0644014cb87d82b0800000000000000
+      internalID: -5580671613302192625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014game buttons set with orange_6057998_8"
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 253
+        width: 190
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f24e87d6978b5c0800000000000000
+      internalID: -4199473141436371192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "\u2014Pngtree\u2014game buttons set with orange_6057998_0": 8582710559621652407
+      "\u2014Pngtree\u2014game buttons set with orange_6057998_1": -8318206633819519172
+      "\u2014Pngtree\u2014game buttons set with orange_6057998_2": -6646780025604652970
+      "\u2014Pngtree\u2014game buttons set with orange_6057998_3": -932390162965990893
+      "\u2014Pngtree\u2014game buttons set with orange_6057998_4": 1177844666172860013
+      "\u2014Pngtree\u2014game buttons set with orange_6057998_5": -6567240308097768446
+      "\u2014Pngtree\u2014game buttons set with orange_6057998_6": -6292929301705569717
+      "\u2014Pngtree\u2014game buttons set with orange_6057998_7": -5580671613302192625
+      "\u2014Pngtree\u2014game buttons set with orange_6057998_8": -4199473141436371192
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

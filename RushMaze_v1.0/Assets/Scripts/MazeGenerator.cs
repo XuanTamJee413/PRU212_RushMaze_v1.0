@@ -3,16 +3,17 @@ using UnityEngine;
 
 public class MazeGenerator : MonoBehaviour
 {
-    public int mazeWidth = 10;
-    public int mazeHeight = 10;
-    public float pathWidth = 1.0f;
-    public float wallWidth = 1.0f;
+    public int mazeWidth = 15;
+    public int mazeHeight = 15;
+    public float pathWidth = 3.0f;
+    public float wallWidth = 3.0f;
     public int centerSize = 3;
 
-    public int exitX, exitY; // Lưu vị trí cổng ra
+    public int exitX, exitY;
 
     public GameObject wallPrefab;
     public GameObject pathPrefab;
+    public GameObject borderPrefab;
     public GameObject player;
     
 
@@ -49,10 +50,9 @@ public class MazeGenerator : MonoBehaviour
         CarvePath(startX, startY, rand);
 
         CreateExit(rand);
-
         BuildMaze();
+        CreateBorder();
         PlacePlayerAtExit();
-
     }
    
     void CreateExit(System.Random rand)
@@ -158,5 +158,33 @@ public class MazeGenerator : MonoBehaviour
     {
         return maze;
     }
+
+    void CreateBorder()
+    {
+        float borderOffset = (wallWidth + pathWidth) / 2;
+
+        // Tạo viền trên và dưới
+        for (int x = -1; x <= mazeWidth; x++)
+        {
+            Vector3 bottomBorder = new Vector3(x * pathWidth, -borderOffset, 0);
+            Vector3 topBorder = new Vector3(x * pathWidth, mazeHeight * pathWidth + borderOffset, 0);
+
+            Instantiate(borderPrefab, bottomBorder, Quaternion.identity, transform);
+            Instantiate(borderPrefab, topBorder, Quaternion.identity, transform);
+        }
+
+        // Tạo viền trái và phải
+        for (int y = 0; y < mazeHeight; y++)
+        {
+            Vector3 leftBorder = new Vector3(-borderOffset, y * pathWidth, 0);
+            Vector3 rightBorder = new Vector3(mazeWidth * pathWidth + borderOffset, y * pathWidth, 0);
+
+            Instantiate(borderPrefab, leftBorder, Quaternion.identity, transform);
+            Instantiate(borderPrefab, rightBorder, Quaternion.identity, transform);
+        }
+    }
+
+
+
 
 }
