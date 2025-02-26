@@ -16,7 +16,7 @@ TagManager:
   - Wall
   - Player
   - Enemy
-  - 
+  - Item
   - 
   - 
   - 
@@ -57,6 +57,9 @@ TagManager:
     locked: 0
   - name: ForeGround
     uniqueID: 291414625
+    locked: 0
+  - name: Item
+    uniqueID: 2181921123
     locked: 0
   m_RenderingLayers:
   - Default

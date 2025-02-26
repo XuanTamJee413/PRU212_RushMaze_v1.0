@@ -30,7 +30,7 @@ public class MazeGenerator : MonoBehaviour
         Debug.Log($"Player Position: ({playerPos.x}, {playerPos.y}) - Exit: ({exitX}, {exitY})");
     }
 
-    void GenerateMaze()
+    public void GenerateMaze()
     {
         maze = new int[mazeWidth, mazeHeight];
         System.Random rand = new System.Random();
@@ -54,7 +54,7 @@ public class MazeGenerator : MonoBehaviour
         PlacePlayerAtExit();
 
     }
-
+   
     void CreateExit(System.Random rand)
     {
         int edge = rand.Next(4);

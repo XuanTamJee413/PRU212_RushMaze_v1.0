@@ -11,23 +11,44 @@ public class EnemyController : MonoBehaviour
     private List<Vector2> spawnPositions = new List<Vector2>();
     private List<GameObject> enemies = new List<GameObject>();
 
+
+    public GameObject goldPrefab; 
+    private int clickCount = 0;
+    private float clickTime = 0f;
+    private float clickThreshold = 1f; 
+    private float dropChance = 1f; 
+
+    void OnMouseDown()
+    {
+        if (Time.time - clickTime > clickThreshold)
+        {
+            clickCount = 0; 
+        }
+
+        clickTime = Time.time;
+        clickCount++;
+
+        if (clickCount >= 3)
+        {
+            Destroy(gameObject);
+            TryDropGold();
+        }
+    }
+
+    void TryDropGold()
+    {
+        if (goldPrefab != null && Random.value < dropChance)
+        {
+            Instantiate(goldPrefab, transform.position, Quaternion.identity);
+        }
+    }
+
+
     void Start()
     {
-        if (mazeGenerator == null)
-        {
-            Debug.LogError("MazeGenerator chưa được gán! Hãy kéo GameObject chứa MazeGenerator vào Inspector.");
-            return;
-        }
-
-        if (enemyPrefab == null)
-        {
-            Debug.LogError("EnemyPrefab chưa được gán! Hãy kéo Prefab quái vào Inspector.");
-            return;
-        }
-
         GenerateEnemySpawns();
         SpawnEnemies();
-  
+
     }
 
     void GenerateEnemySpawns()
@@ -51,23 +72,12 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
-
-        if (spawnPositions.Count == 0)
-        {
-            Debug.LogWarning("⚠️ Không có vị trí hợp lệ để spawn quái!");
-        }
     }
 
     void SpawnEnemies()
     {
         System.Random rand = new System.Random();
         int spawnLimit = Mathf.Min(enemyCount, spawnPositions.Count);
-
-        if (spawnLimit == 0)
-        {
-            Debug.LogWarning("Không thể spawn quái vì không có vị trí hợp lệ.");
-            return;
-        }
 
         for (int i = 0; i < spawnLimit; i++)
         {
@@ -81,17 +91,23 @@ public class EnemyController : MonoBehaviour
 
             if (enemy.GetComponent<NavMeshAgent>() == null)
             {
-                enemy.AddComponent<NavMeshAgent>(); // Đảm bảo có NavMeshAgent
+                enemy.AddComponent<NavMeshAgent>(); 
             }
 
             enemy.GetComponent<NavMeshAgent>().speed = 2.0f;
-            enemy.GetComponent<SpriteRenderer>().sortingLayerName = "Enemy";
 
-            Debug.Log($"Quái spawn tại {worldPos}");
+
+            enemy.GetComponent<SpriteRenderer>().sortingLayerName = "Enemy";
+            
+            enemy.AddComponent<EnemyController>();
+
+            //GameObject gold = Instantiate(goldPrefab, enemy.transform.position, Quaternion.identity);
+            //gold.transform.SetParent(enemy.transform);
+
+            
         }
 
-        InvokeRepeating("MoveEnemies", 1f, 3f);
     }
 
-    
+
 }
