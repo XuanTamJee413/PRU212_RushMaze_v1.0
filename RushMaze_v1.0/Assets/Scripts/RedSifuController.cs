@@ -62,11 +62,11 @@ public class RedSifuController : MonoBehaviour
         }
         else
         {
-            currentStep = -1; // Reset lại khi kết thúc
+            currentStep = -1; 
             CloseDialogue();
         }
 
-        currentStep++; // Chuyển đến phần tiếp theo
+        currentStep++; 
     }
 
     void CloseDialogue()

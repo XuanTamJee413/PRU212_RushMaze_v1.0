@@ -52,11 +52,11 @@ TagManager:
   - name: Wall
     uniqueID: 749148613
     locked: 0
-  - name: ForeGround
-    uniqueID: 291414625
-    locked: 0
   - name: Player
     uniqueID: 3219512355
+    locked: 0
+  - name: ForeGround
+    uniqueID: 291414625
     locked: 0
   m_RenderingLayers:
   - Default
