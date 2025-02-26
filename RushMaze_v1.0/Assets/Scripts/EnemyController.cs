@@ -1,31 +1,33 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 
 public class EnemyController : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public int enemyCount = 5;
+    public int enemyCount = 15;
     public MazeGenerator mazeGenerator;
     private List<Vector2> spawnPositions = new List<Vector2>();
+    private List<GameObject> enemies = new List<GameObject>();
 
     void Start()
     {
-        // Kiểm tra mazeGenerator đã được gán chưa
         if (mazeGenerator == null)
         {
             Debug.LogError("MazeGenerator chưa được gán! Hãy kéo GameObject chứa MazeGenerator vào Inspector.");
             return;
         }
 
-        // Kiểm tra enemyPrefab đã được gán chưa
         if (enemyPrefab == null)
         {
-            Debug.LogError(" enemyPrefab chưa được gán! Hãy kéo Prefab quái vào Inspector.");
+            Debug.LogError("EnemyPrefab chưa được gán! Hãy kéo Prefab quái vào Inspector.");
             return;
         }
 
         GenerateEnemySpawns();
         SpawnEnemies();
+  
     }
 
     void GenerateEnemySpawns()
@@ -39,10 +41,10 @@ public class EnemyController : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if (maze[x, y] == 0) // Chỉ spawn trên đường đi
+                if (maze[x, y] == 0)
                 {
                     Vector2 pos = new Vector2(x, y);
-                    if (Vector2.Distance(pos, exitPos) > 2) // Tránh spawn gần cửa ra
+                    if (Vector2.Distance(pos, exitPos) > 2)
                     {
                         spawnPositions.Add(pos);
                     }
@@ -50,14 +52,9 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        // Kiểm tra nếu không có vị trí nào hợp lệ
         if (spawnPositions.Count == 0)
         {
             Debug.LogWarning("⚠️ Không có vị trí hợp lệ để spawn quái!");
-        }
-        else
-        {
-            Debug.Log($" Có {spawnPositions.Count} vị trí hợp lệ để spawn quái.");
         }
     }
 
@@ -76,20 +73,25 @@ public class EnemyController : MonoBehaviour
         {
             int index = rand.Next(spawnPositions.Count);
             Vector2 spawnPos = spawnPositions[index];
-            spawnPositions.RemoveAt(index); // Xóa khỏi danh sách để tránh trùng vị trí
+            spawnPositions.RemoveAt(index);
 
             Vector3 worldPos = new Vector3(spawnPos.x * mazeGenerator.pathWidth, spawnPos.y * mazeGenerator.pathWidth, 0);
             GameObject enemy = Instantiate(enemyPrefab, worldPos, Quaternion.identity);
+            enemies.Add(enemy);
 
-            // Kiểm tra xem quái có spawn thành công không
-            if (enemy != null)
+            if (enemy.GetComponent<NavMeshAgent>() == null)
             {
-                Debug.Log($"Quái {enemy.name} spawn tại {worldPos}");
+                enemy.AddComponent<NavMeshAgent>(); // Đảm bảo có NavMeshAgent
             }
-            else
-            {
-                Debug.LogError(" Spawn quái thất bại!");
-            }
+
+            enemy.GetComponent<NavMeshAgent>().speed = 2.0f;
+            enemy.GetComponent<SpriteRenderer>().sortingLayerName = "Enemy";
+
+            Debug.Log($"Quái spawn tại {worldPos}");
         }
+
+        InvokeRepeating("MoveEnemies", 1f, 3f);
     }
+
+    
 }
