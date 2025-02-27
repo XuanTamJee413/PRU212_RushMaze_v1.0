@@ -17,8 +17,8 @@ TagManager:
   - Wall
   - Player
   - Enemy
-  - 
-  - 
+  - Coin
+  - Item
   - 
   - 
   - 
@@ -64,6 +64,9 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 742527449
+    locked: 0
+  - name: Coin
+    uniqueID: 3685190559
     locked: 0
   m_RenderingLayers:
   - Default
