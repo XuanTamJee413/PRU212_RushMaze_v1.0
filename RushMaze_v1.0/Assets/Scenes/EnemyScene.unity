@@ -466,6 +466,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: mazeWidth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: mazeHeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
       propertyPath: pathPrefab
       value: 
       objectReference: {fileID: 1217733083841633896, guid: e97a434cef7050143910cabaa3972ffb, type: 3}
