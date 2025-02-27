@@ -3,19 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Wall
+  - Ground
+  - Coin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - Player
+  - Enemy
+  - Coin
+  - Item
   - 
   - 
   - 
@@ -40,6 +43,30 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3881126265
+    locked: 0
+  - name: Enemy
+    uniqueID: 3488532209
+    locked: 0
+  - name: Wall
+    uniqueID: 749148613
+    locked: 0
+  - name: ForeGround
+    uniqueID: 291414625
+    locked: 0
+  - name: Player
+    uniqueID: 3219512355
+    locked: 0
+  - name: Item
+    uniqueID: 1514526789
+    locked: 0
+  - name: UI
+    uniqueID: 742527449
+    locked: 0
+  - name: Coin
+    uniqueID: 3685190559
     locked: 0
   m_RenderingLayers:
   - Default
