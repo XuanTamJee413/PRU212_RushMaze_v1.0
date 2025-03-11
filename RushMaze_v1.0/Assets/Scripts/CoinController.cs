@@ -22,7 +22,6 @@ public class CoinController : MonoBehaviour
         SpawnCoins();
     }
 
-
     void GenerateCoinSpawns()
     {
         int[,] maze = mazeGenerator.GetMaze();
@@ -55,7 +54,6 @@ public class CoinController : MonoBehaviour
         Debug.Log($"Generated {spawnPositions.Count} coin spawn positions.");
     }
 
-
     void SpawnCoins()
     {
         System.Random rand = new System.Random();
@@ -69,9 +67,38 @@ public class CoinController : MonoBehaviour
 
             Vector3 worldPos = new Vector3(spawnPos.x * mazeGenerator.pathWidth, spawnPos.y * mazeGenerator.pathWidth, 0);
             GameObject coin = Instantiate(coinPrefab, worldPos, Quaternion.identity);
-            coin.GetComponent<SpriteRenderer>().sortingLayerName = "Item"; 
-            coin.AddComponent<CoinController>();
+            coin.GetComponent<SpriteRenderer>().sortingLayerName = "Item";
+
+            
+            if (coin.GetComponent<CircleCollider2D>() == null)
+            {
+                CircleCollider2D collider = coin.AddComponent<CircleCollider2D>();
+                collider.isTrigger = true;
+            }
+
+            if (coin.GetComponent<Rigidbody2D>() == null)
+            {
+                Rigidbody2D rb = coin.AddComponent<Rigidbody2D>();
+                rb.isKinematic = true;
+            }
+
+            
+            coin.AddComponent<CoinPickup>();
+
             coins.Add(coin);
+        }
+    }
+}
+
+
+public class CoinPickup : MonoBehaviour
+{
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player")) 
+        {
+            Destroy(gameObject);
+            Debug.Log("Coin collected!");
         }
     }
 }
