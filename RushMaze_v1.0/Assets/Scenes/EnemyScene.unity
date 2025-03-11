@@ -124,21 +124,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 737239204246860007, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
   m_PrefabInstance: {fileID: 8812610478542629882}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &146346437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146346436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82d2334c7a5f14e4c852bffee0d15884, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 737239204246860007, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
-  coinCount: 10
-  mazeGenerator: {fileID: 1655838910}
 --- !u!1001 &630689999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,9 +466,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
-      propertyPath: borderPrefab
+      propertyPath: mazeWidth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: mazeHeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: pathPrefab
       value: 
-      objectReference: {fileID: 4087137391254462852, guid: 3b5311351a72fda49adbaf2b67d19c17, type: 3}
+      objectReference: {fileID: 1217733083841633896, guid: e97a434cef7050143910cabaa3972ffb, type: 3}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: wallPrefab
+      value: 
+      objectReference: {fileID: 4661262354980096547, guid: 5e0c2b28c17d42d4da0e113420c00b6c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -686,11 +683,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 05eb038db6d7d2041891f4c2b3cc9740, type: 2}
     - target: {fileID: 8702365835096214612, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.22
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8702365835096214612, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.15
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 8702365835096214612, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -798,10 +795,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 737239204246860007, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 146346437}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

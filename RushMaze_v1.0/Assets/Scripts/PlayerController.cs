@@ -26,26 +26,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        UpdateAnimation();
     }
 
     private void HandleMovement()
     {
-        float moveInputX = Input.GetAxis("Horizontal");
-        float moveInputY = Input.GetAxis("Vertical");
+        Vector2 playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        rb.linearVelocity = playerInput.normalized * moveSpeed;
 
-        rb.linearVelocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);
-
-        if (moveInputX > 0) transform.localScale = new Vector3(1, 1, 1);
-        else if (moveInputX < 0) transform.localScale = new Vector3(-1, 1, 1);
-    }
-
-
-    private void UpdateAnimation()
-    {
-        bool isMoving = rb.linearVelocity.magnitude > 0.1f;
-
-        animator.SetBool("PlayerRun", isMoving);
-        animator.SetBool("PlayerIdle", !isMoving);
+        if (playerInput.x > 0) transform.localScale = new Vector3(1, 1, 1);
+        else if (playerInput.x < 0) transform.localScale = new Vector3(-1, 1, 1);
+        if (playerInput != Vector2.zero) animator.SetBool("isRunning", true);
+        else animator.SetBool("isRunning", false);
     }
 }
