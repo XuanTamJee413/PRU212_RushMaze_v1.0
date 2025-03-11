@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Ground
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -63,6 +64,9 @@ TagManager:
     locked: 0
   - name: NPC
     uniqueID: 4178479601
+    locked: 0
+  - name: Point
+    uniqueID: 879564119
     locked: 0
   m_RenderingLayers:
   - Default
