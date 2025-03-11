@@ -10,8 +10,11 @@ public class UIManager : MonoBehaviour
     public TMP_Text goldText;
     public TMP_Text powerText;
     public TMP_Text expText;
+    public TMP_Text dameText;
     public TMP_Text levelText;
 
+    public Image hpBar;
+    public Image mpBar;
 
     private void Start()
     {
@@ -23,12 +26,7 @@ public class UIManager : MonoBehaviour
     {
         PlayerData player = SaveSystem.LoadPlayer();
 
-        hpText.text = $"HP: {player.CurrentHp}/{player.MaxHp}";
-        manaText.text = $"Mana: {player.CurrentMana}/{player.MaxMana}";
-        goldText.text = $"Gold: {player.Gold}";
-        powerText.text = $"Power: {player.Power}";
-        expText.text = $"Exp: {player.Experience}";
-        levelText.text = $"Level: {player.Level}";
+        UpdateUI(player);
     }
 
     // Cập nhật UI sau khi thay đổi dữ liệu
@@ -38,7 +36,11 @@ public class UIManager : MonoBehaviour
         manaText.text = $"Mana: {player.CurrentMana}/{player.MaxMana}";
         goldText.text = $"Gold: {player.Gold}";
         powerText.text = $"Power: {player.Power}";
-        expText.text = $"Exp: {player.Experience}";
+        expText.text = $"Exp: {player.Exp}";
+        dameText.text = $"Dame Per Hit: {player.Dame}";
         levelText.text = $"Level: {player.Level}";
+
+        hpBar.fillAmount = (float)player.CurrentHp / player.MaxHp;
+        mpBar.fillAmount = (float)player.CurrentMana / player.MaxMana;
     }
 }
