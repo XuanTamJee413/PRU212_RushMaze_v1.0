@@ -5,7 +5,7 @@ using System.Collections;
 public class CoinController : MonoBehaviour
 {
     public GameObject coinPrefab;
-    public int coinCount = 10;
+    public int coinCount = 20;
     public MazeGenerator mazeGenerator;
     private List<Vector2> spawnPositions = new List<Vector2>();
     private List<GameObject> coins = new List<GameObject>();
