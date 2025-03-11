@@ -2,6 +2,7 @@
 using UnityEngine.AI;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
+using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
@@ -35,21 +36,34 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private bool hasDroppedGold = false;
+
     void TryDropGold()
     {
+        if (hasDroppedGold) return; 
+
         if (goldPrefab != null && Random.value < dropChance)
         {
             Instantiate(goldPrefab, transform.position, Quaternion.identity);
+            hasDroppedGold = true; 
         }
     }
 
 
-    void Start()
+
+
+    IEnumerator Start()
     {
+        while (mazeGenerator == null || mazeGenerator.GetMaze() == null)
+        {
+            Debug.Log("Waiting for maze to be ready...");
+            yield return null;
+        }
+
         GenerateEnemySpawns();
         SpawnEnemies();
-
     }
+
 
     void GenerateEnemySpawns()
     {
