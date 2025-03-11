@@ -183,6 +183,10 @@ public class MazeGenerator : MonoBehaviour
             Instantiate(borderPrefab, rightBorder, Quaternion.identity, transform);
         }
     }
+    void Awake()
+    {
+        GenerateMaze(); 
+    }
 
 
 

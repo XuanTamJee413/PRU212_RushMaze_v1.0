@@ -17,8 +17,8 @@ TagManager:
   - Wall
   - Player
   - Enemy
-  - Coin
   - Item
+  - 
   - 
   - 
   - 
@@ -50,26 +50,23 @@ TagManager:
   - name: Enemy
     uniqueID: 3488532209
     locked: 0
+  - name: Item
+    uniqueID: 2181921123
+    locked: 0
   - name: Wall
     uniqueID: 749148613
-    locked: 0
-  - name: ForeGround
-    uniqueID: 291414625
     locked: 0
   - name: Player
     uniqueID: 3219512355
     locked: 0
-  - name: Item
-    uniqueID: 1514526789
-    locked: 0
-  - name: UI
-    uniqueID: 742527449
-    locked: 0
-  - name: Coin
-    uniqueID: 3685190559
+  - name: ForeGround
+    uniqueID: 291414625
     locked: 0
   - name: NPC
     uniqueID: 4178479601
+    locked: 0
+  - name: Point
+    uniqueID: 879564119
     locked: 0
   m_RenderingLayers:
   - Default
