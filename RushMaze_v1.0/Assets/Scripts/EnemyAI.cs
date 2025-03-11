@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 public class EnemyAI : MonoBehaviour
 {
-    public float moveSpeed = 2f; // Tốc độ di chuyển
-    public float moveInterval = 1.5f; // Thời gian giữa các lần di chuyển
+    public float moveSpeed = 2f;
+    public float moveInterval = 1.5f;
     private MazeGenerator mazeGenerator;
+    private Vector2 currentDirection;
 
     void Start()
     {
@@ -17,10 +18,14 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        StartCoroutine(MoveRandomly());
+        // Chọn hướng ban đầu ngẫu nhiên
+        Vector2[] possibleDirections = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
+        currentDirection = possibleDirections[Random.Range(0, possibleDirections.Length)];
+
+        StartCoroutine(MoveContinuously());
     }
 
-    IEnumerator MoveRandomly()
+    IEnumerator MoveContinuously()
     {
         while (true)
         {
@@ -31,12 +36,23 @@ public class EnemyAI : MonoBehaviour
 
     void TryMove()
     {
-        Vector2[] directions = {
-            Vector2.up, Vector2.down, Vector2.left, Vector2.right
-        };
+        Vector2 targetPos = (Vector2)transform.position + currentDirection;
+        if (CanMoveTo(targetPos))
+        {
+            StartCoroutine(MoveToPosition(targetPos));
+        }
+        else
+        {
+            // Nếu gặp tường, đổi hướng
+            ChangeDirection();
+        }
+    }
 
-        // Lấy hướng hợp lệ
+    void ChangeDirection()
+    {
+        Vector2[] directions = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
         List<Vector2> validDirections = new List<Vector2>();
+
         foreach (var dir in directions)
         {
             Vector2 newPos = (Vector2)transform.position + dir;
@@ -46,12 +62,9 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        // Nếu có hướng hợp lệ thì chọn ngẫu nhiên một hướng để di chuyển
         if (validDirections.Count > 0)
         {
-            Vector2 moveDirection = validDirections[Random.Range(0, validDirections.Count)];
-            Vector2 targetPos = (Vector2)transform.position + moveDirection;
-            StartCoroutine(MoveToPosition(targetPos));
+            currentDirection = validDirections[Random.Range(0, validDirections.Count)];
         }
     }
 

@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &146346436 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 737239204246860007, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
-  m_PrefabInstance: {fileID: 8812610478542629882}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &630689999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -557,7 +552,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8717544629996642032, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
   enemyCount: 15
   mazeGenerator: {fileID: 1655838910}
-  goldPrefab: {fileID: 146346436}
+  goldPrefab: {fileID: 0}
 --- !u!195 &1738944927
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -580,6 +575,20 @@ NavMeshAgent:
   m_BaseOffset: 0.75
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1738944933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738944919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd75382a9fa5fec478fcc8c86e2bcdd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  moveInterval: 1.5
 --- !u!1001 &4519278637779724626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,6 +744,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8717544629996642032, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1738944927}
+    - targetCorrespondingSourceObject: {fileID: 8717544629996642032, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1738944933}
   m_SourcePrefab: {fileID: 100100000, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
 --- !u!1001 &8812610478542629882
 PrefabInstance:
