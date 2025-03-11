@@ -24,7 +24,7 @@ public class RoninSifuController : MonoBehaviour
     public void LoadLevel1()
     {
         LevelData.SetLevelData(5, 5, 5, 10);
-        Debug.Log($"LoadLevel1: {LevelData.mazeWidth}, {LevelData.mazeHeight}");
+        Debug.Log($"LoadLevel1: {LevelData.MazeWidth}, {LevelData.MazeHeight}");
         SceneManager.LoadScene("EnemyScene");
     }
 

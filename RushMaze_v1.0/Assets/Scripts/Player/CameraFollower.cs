@@ -7,6 +7,10 @@ public class CameraFollower : MonoBehaviour
 
     void LateUpdate()
     {
+        if (player == null)
+        {
+            Debug.LogError("Player is not assigned!");
+        }
         if (player != null)
         {
             transform.position = player.position + offset;
