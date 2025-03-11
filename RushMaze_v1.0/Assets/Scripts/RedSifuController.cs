@@ -35,7 +35,7 @@ public class RedSifuController : MonoBehaviour
 
     void OnTask()
     {
-        dialogueText.text = "Con hãy đến rừng sâu thu thập 10 thảo dược!"; // Nội dung nhiệm vụ
+        dialogueText.text = "Con hãy đến rừng sâu gặp kiếm khách!"; // Nội dung nhiệm vụ
     }
 
     void OnStory()

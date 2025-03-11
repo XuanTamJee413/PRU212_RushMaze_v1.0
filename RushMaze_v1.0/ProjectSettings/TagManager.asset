@@ -68,5 +68,8 @@ TagManager:
   - name: Coin
     uniqueID: 3685190559
     locked: 0
+  - name: NPC
+    uniqueID: 4178479601
+    locked: 0
   m_RenderingLayers:
   - Default
