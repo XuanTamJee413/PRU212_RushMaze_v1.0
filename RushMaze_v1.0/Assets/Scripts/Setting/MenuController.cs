@@ -48,7 +48,7 @@ public class MenuController : MonoBehaviour
 
     public void StoryButton()
     {
-        Debug.Log("Hướng dẫn: Dùng phím mũi tên hoặc WASD để di chuyển.");
+        SceneManager.LoadScene("StoryScene");
     }
 
     public void ExitButton()
