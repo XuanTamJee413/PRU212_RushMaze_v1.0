@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text expText;
     public TMP_Text dameText;
     public TMP_Text levelText;
-
+    public TMP_Text keyText;
     public Image hpBar;
     public Image mpBar;
 
@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
         expText.text = $"Exp: {player.Exp}";
         dameText.text = $"Dame Per Hit: {player.Dame}";
         levelText.text = $"Level: {player.Level}";
+        keyText.text = $"Key: {player.Key}";
 
         hpBar.fillAmount = (float)player.CurrentHp / player.MaxHp;
         mpBar.fillAmount = (float)player.CurrentMana / player.MaxMana;

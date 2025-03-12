@@ -23,5 +23,9 @@ public class PlayerDataManager : MonoBehaviour
     public void AddGold(int amount)
     {
         PlayerData.Gold += amount;
+    } public void AddKey()
+    {
+        PlayerData.Key = 1;
     }
+    
 }
