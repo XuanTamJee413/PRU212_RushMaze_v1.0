@@ -28,17 +28,17 @@ public class NavMeshBaker : MonoBehaviour
 
     void Start()
     {
-        void Start()
-        {
-            if (mazeGenerator != null)
-            {
-                mazeGenerator.GenerateMaze(); // Gọi GenerateMaze() sau khi đã sửa thành public
-            }
-            else
-            {
-                Debug.LogError("⚠️ MazeGenerator chưa được gán! Hãy kéo GameObject chứa MazeGenerator vào Inspector.");
-            }
-        }
+        //void Start()
+        //{
+        //    if (mazeGenerator != null)
+        //    {
+        //        mazeGenerator.GenerateMaze(); // Gọi GenerateMaze() sau khi đã sửa thành public
+        //    }
+        //    else
+        //    {
+        //        Debug.LogError("⚠️ MazeGenerator chưa được gán! Hãy kéo GameObject chứa MazeGenerator vào Inspector.");
+        //    }
+        //}
     }
 
 }
