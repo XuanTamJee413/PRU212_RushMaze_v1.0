@@ -19,11 +19,12 @@ namespace Assets.Data
         public int Exp;
         public int Dame;
         public int Gold;
+        public int Key;
 
         // Tính level từ kinh nghiệm
         public int Level => 1 + Exp / 100;
 
-        public PlayerData(int maxHp, int currentHp, int maxMana, int currentMana, float x, float y, int power, int exp, int dame, int gold)
+        public PlayerData(int maxHp, int currentHp, int maxMana, int currentMana, float x, float y, int power, int exp, int dame, int gold, int key)
         {
             MaxHp = maxHp;
             CurrentHp = currentHp;
@@ -35,12 +36,13 @@ namespace Assets.Data
             Exp = exp;
             Dame = dame;
             Gold = gold;
+            Key = key;
         }
 
         // Dữ liệu mặc định cho nhân vật mới
         public static PlayerData DefaultPlayer()
         {
-            return new PlayerData(100, 90, 50, 40, 0, 0, 10, 10, 10, 100);
+            return new PlayerData(100, 90, 50, 40, 0, 0, 10, 10, 10, 100,0);
         }
     }
 
