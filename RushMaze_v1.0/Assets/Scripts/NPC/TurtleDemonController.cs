@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Model;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TurtleDemonController : MonoBehaviour
 {
-    public GameObject TurtleDemonPanel;
-    public Text dialogueText;
-    public Button taskButton, storyButton, exitButton;
+    public GameObject TurtleDemonPanel; // Panel hội thoại
+    public Text dialogueText;        // Text hiển thị lời thoại
+    public Button lvl1, lvl2, lvl3, lvl4, lvl5, exitButton;
 
     private int currentStep = 0;
     private bool isDialogueActive = false;
@@ -14,54 +16,47 @@ public class TurtleDemonController : MonoBehaviour
     {
         TurtleDemonPanel.SetActive(false);
 
-        taskButton.onClick.AddListener(OnTask);
-        storyButton.onClick.AddListener(OnStory);
+        // Gán sự kiện cho các nút
+        lvl1.onClick.AddListener(LoadLevel1);
+        lvl2.onClick.AddListener(LoadLevel2);
+        lvl3.onClick.AddListener(LoadLevel2);
+        lvl4.onClick.AddListener(LoadLevel2);
+        lvl5.onClick.AddListener(LoadLevel2);
         exitButton.onClick.AddListener(CloseDialogue);
     }
-
-    void OnMouseDown()
+    public void LoadLevel1()
     {
+        LevelData.SetLevelData(5, 5, 5, 10);
+        Debug.Log($"LoadLevel1: {LevelData.MazeWidth}, {LevelData.MazeHeight}");
+        SceneManager.LoadScene("EnemyScene");
+    }
+
+    public void LoadLevel2()
+    {
+        LevelData.SetLevelData(20, 20, 10, 20);
+        SceneManager.LoadScene("EnemyScene");
+    }
+
+
+    public void LoadLevelByName(string levelName)
+    {
+        // Load Scene theo tên
+        SceneManager.LoadScene(levelName);
+    }
+
+    void OnMouseDown() // Khi nhấp chuột vào NPC
+    {
+        Debug.Log("Bạn đã nhấn vào TurtleDemon!");
         if (!isDialogueActive) OpenDialogue();
     }
 
     void OpenDialogue()
     {
         TurtleDemonPanel.SetActive(true);
-        dialogueText.text = "Ngươi là ai? Ngươi có biết lời nguyền nơi này không?";
         isDialogueActive = true;
     }
 
-    void OnTask()
-    {
-        dialogueText.text = "Nếu muốn sống sót, hãy tìm 'Ngọc Hộ Mệnh' trong mê cung.";
-    }
 
-    void OnStory()
-    {
-        if (currentStep == 0)
-        {
-            dialogueText.text = "Ta từng là một chiến binh, nhưng bị nguyền rủa vì tham vọng bí thuật.";
-        }
-        else if (currentStep == 1)
-        {
-            dialogueText.text = "Bí thuật có thể mang lại sức mạnh vô biên, nhưng cũng có thể huỷ diệt linh hồn ngươi.";
-        }
-        else if (currentStep == 2)
-        {
-            dialogueText.text = "Kiếm Khách là người duy nhất từng sử dụng bí thuật mà không bị hủy diệt.";
-        }
-        else if (currentStep == 3)
-        {
-            dialogueText.text = "Nếu ngươi thực sự muốn bước vào mê cung, hãy chuẩn bị tinh thần đối mặt với chính bản thân mình.";
-        }
-        else
-        {
-            currentStep = -1;
-            CloseDialogue();
-        }
-
-        currentStep++;
-    }
 
     void CloseDialogue()
     {

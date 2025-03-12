@@ -233,6 +233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4638850144691618915, guid: dafc71605b103864fb73883c4a338845, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1597979817}
     - target: {fileID: 8536438452354378603, guid: dafc71605b103864fb73883c4a338845, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.25
@@ -303,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dee86387fda05c4aa95f0d9a2f31527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!1 &849580924
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +748,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: coinPrefab
+      value: 
+      objectReference: {fileID: 7942201320319980414, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
       propertyPath: mazeHeight
       value: 20
       objectReference: {fileID: 0}
@@ -755,9 +764,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4661262354980096547, guid: 5e0c2b28c17d42d4da0e113420c00b6c, type: 3}
     - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: floorPrefab
+      value: 
+      objectReference: {fileID: 1217733083841633896, guid: e97a434cef7050143910cabaa3972ffb, type: 3}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
       propertyPath: borderPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 630690000}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: monsterPrefab
+      value: 
+      objectReference: {fileID: 8717544629996642032, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -819,22 +840,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8717544629996642032, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
   m_PrefabInstance: {fileID: 5381618269422319738}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1738944926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738944919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dc6764c92a9224e9c9eaa44123a881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8717544629996642032, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
-  enemyCount: 15
-  mazeGenerator: {fileID: 1655838910}
-  goldPrefab: {fileID: 0}
 --- !u!195 &1738944927
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1075,9 +1080,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8717544629996642032, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1738944926}
-    - targetCorrespondingSourceObject: {fileID: 8717544629996642032, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1738944927}
   m_SourcePrefab: {fileID: 100100000, guid: 190f99206abbfb04490a1869b177ae0e, type: 3}
 --- !u!1001 &8812610478542629882
@@ -1139,31 +1141,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7942201320319980414, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8812610478542629884}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
---- !u!1 &8812610478542629883 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7942201320319980414, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
-  m_PrefabInstance: {fileID: 8812610478542629882}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8812610478542629884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8812610478542629883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82d2334c7a5f14e4c852bffee0d15884, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 7942201320319980414, guid: c8d79f373a4dc6e4dbadb15f23456b13, type: 3}
-  coinCount: 10
-  mazeGenerator: {fileID: 1655838910}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
