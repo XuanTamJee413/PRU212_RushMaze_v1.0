@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - EnemyBullet
   - Enemy
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -49,14 +50,17 @@ TagManager:
   - name: Ground
     uniqueID: 3881126265
     locked: 0
-  - name: Enemy
-    uniqueID: 3488532209
-    locked: 0
   - name: Wall
     uniqueID: 749148613
     locked: 0
   - name: Item
     uniqueID: 2181921123
+    locked: 0
+  - name: Key
+    uniqueID: 2566502723
+    locked: 0
+  - name: Enemy
+    uniqueID: 3488532209
     locked: 0
   - name: Player
     uniqueID: 3219512355
@@ -72,9 +76,6 @@ TagManager:
     locked: 0
   - name: Point
     uniqueID: 879564119
-    locked: 0
-  - name: Key
-    uniqueID: 2566502723
     locked: 0
   m_RenderingLayers:
   - Default

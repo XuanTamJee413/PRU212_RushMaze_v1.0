@@ -536,6 +536,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
+      propertyPath: keyPrefab
+      value: 
+      objectReference: {fileID: 2707853310047744199, guid: e4178eddc8248da49ab211b2011534db, type: 3}
+    - target: {fileID: 8360412759695601062, guid: 9e4fb1b5088d9834bac383ad1cb6c6da, type: 3}
       propertyPath: mazeWidth
       value: 10
       objectReference: {fileID: 0}
