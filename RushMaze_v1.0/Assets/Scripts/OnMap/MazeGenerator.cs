@@ -13,7 +13,7 @@ public class MazeGenerator : MonoBehaviour
     public GameObject keyPrefab; 
 
     public float cellSize = 3.0f;
-    public float respawnTime = 10f;
+    public float respawnTime = 15f;
 
     private int width;
     private int height;
@@ -117,7 +117,6 @@ public class MazeGenerator : MonoBehaviour
 
     void SpawnObjects(GameObject prefab, int count, bool isRespawnable)
     {
-        Debug.Log($"Đang sinh {count} {prefab.name}");
         for (int i = 0; i < count; i++)
         {
             Vector2 randomPos = floorPositions[Random.Range(0, floorPositions.Count)];

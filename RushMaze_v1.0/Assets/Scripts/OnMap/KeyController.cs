@@ -8,7 +8,6 @@ public class KeyController : MonoBehaviour
         audioManager = FindAnyObjectByType<AudioManager>();
         if (other.CompareTag("Player"))
         {
-
             PlayerDataManager.Instance.AddKey();
             Debug.Log("Đã nhặt Key! " + PlayerDataManager.Instance.PlayerData.Key);
             UIManager.Instance.ModifyStats(key: 1);
@@ -16,8 +15,5 @@ public class KeyController : MonoBehaviour
             Destroy(gameObject);
             audioManager.PlayCoinSound();
         }
-
-
-
     }
 }

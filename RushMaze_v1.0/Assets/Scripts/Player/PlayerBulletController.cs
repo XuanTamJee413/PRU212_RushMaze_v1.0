@@ -9,33 +9,34 @@ public class PlayerBulletController : MonoBehaviour
     [SerializeField] private float bulletSpeed = 25f;
     [SerializeField] private float lifetime = 3f;
     private static Dictionary<GameObject, int> enemyHealth = new Dictionary<GameObject, int>();
+    private const int DAMAGE_AMOUNT = 5;
 
+
+    private UIManager uiManager;
     private void Start()
     {
         Destroy(gameObject, lifetime);
-        StartCoroutine(RegenerateMana()); 
+        StartCoroutine(RegenerateMana());
     }
 
     public void SetDirection(Vector2 direction)
     {
-        
+        uiManager = UIManager.Instance;
         PlayerData playerData = SaveSystem.LoadPlayer();
 
-        
-        if (playerData.CurrentMana <= 0)
+        if (playerData.CurrentMana < 5)
         {
-            Debug.Log("[Player] Mana đã hết, không thể bắn!");
             return;
         }
+        else
+        {
+            uiManager.ModifyStats(mana: -5);
 
-        
-        playerData.CurrentMana -= 5;
-        SaveSystem.SavePlayer(playerData);
-        Debug.Log($"[Player] Đã bắn! Mana còn lại: {playerData.CurrentMana}/{playerData.MaxMana}");
+            playerData.CurrentMana -= 5;
+            SaveSystem.SavePlayer(playerData);
 
-        
-        GetComponent<Rigidbody2D>().linearVelocity = direction * bulletSpeed;
-        Debug.Log($"[Bullet] Đạn bắn ra theo hướng {direction} với tốc độ {bulletSpeed}");
+            GetComponent<Rigidbody2D>().linearVelocity = direction * bulletSpeed;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -48,21 +49,17 @@ public class PlayerBulletController : MonoBehaviour
             {
                 int randomHealth = Random.Range(1, 4);
                 enemyHealth[enemy] = randomHealth;
-                Debug.Log($"[Enemy] Quái {enemy.name} có {randomHealth} máu.");
             }
 
             enemyHealth[enemy]--;
-            Debug.Log($"[Bullet] Đạn chạm vào quái: {enemy.name}. Máu còn lại: {enemyHealth[enemy]}");
 
             if (enemyHealth[enemy] <= 0)
             {
                 Destroy(enemy);
-                Debug.Log($"[Enemy] Quái {enemy.name} đã bị tiêu diệt!");
                 enemyHealth.Remove(enemy);
             }
 
             Destroy(gameObject);
-            Debug.Log("[Bullet] Viên đạn bị hủy sau khi va chạm.");
         }
     }
 
@@ -77,7 +74,6 @@ public class PlayerBulletController : MonoBehaviour
             {
                 playerData.CurrentMana = Mathf.Min(playerData.CurrentMana + 5, playerData.MaxMana);
                 SaveSystem.SavePlayer(playerData);
-                Debug.Log($"[Player] Hồi phục 5 mana! Mana hiện tại: {playerData.CurrentMana}/{playerData.MaxMana}");
             }
         }
     }
