@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Model;
+﻿using Assets.Data;
+using Assets.Scripts.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -56,6 +57,11 @@ public class ChatInputManager : MonoBehaviour
         else if (command == "home")
         {
             SceneManager.LoadScene("MainMenu"); // Về MainMenu
+        }else if (command == "save")
+        {
+            SceneManager.LoadScene("MainMenu"); // Về MainMenu
+            MenuController menu = new MenuController();
+            menu.SaveGame();
         }
         else if (command == "lob")
         {

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
-    private static string savePath => Application.persistentDataPath + "/playerdata.json";
+    private static string savePath = Application.dataPath + "/playerdata.json";
 
-    // Lưu dữ liệu nhân vật vào JSON
+
     public static void SavePlayer(PlayerData player)
     {
         string json = JsonUtility.ToJson(player, true);
@@ -14,7 +14,6 @@ public class SaveSystem : MonoBehaviour
         Debug.Log("Dữ liệu đã được lưu: " + savePath);
     }
 
-    // Tải dữ liệu nhân vật từ JSON
     public static PlayerData LoadPlayer()
     {
         if (File.Exists(savePath))
@@ -27,10 +26,8 @@ public class SaveSystem : MonoBehaviour
         return PlayerData.DefaultPlayer();
     }
 
-    // Kiểm tra tồn tại dữ liệu
     public static bool HasSaveData() => File.Exists(savePath);
 
-    // Xóa dữ liệu
     public static void DeleteSave()
     {
         if (File.Exists(savePath))

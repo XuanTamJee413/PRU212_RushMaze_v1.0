@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Data
 {
@@ -21,7 +17,6 @@ namespace Assets.Data
         public int Gold;
         public int Key;
 
-        // Tính level từ kinh nghiệm
         public int Level => 1 + Exp / 100;
 
         public PlayerData(int maxHp, int currentHp, int maxMana, int currentMana, float x, float y, int power, int exp, int dame, int gold, int key)
@@ -39,11 +34,9 @@ namespace Assets.Data
             Key = key;
         }
 
-        // Dữ liệu mặc định cho nhân vật mới
         public static PlayerData DefaultPlayer()
         {
-            return new PlayerData(100, 90, 50, 40, 0, 0, 10, 10, 10, 100,0);
+            return new PlayerData(100, 90, 50, 40, 0, 0, 10, 10, 10, 100, 0);
         }
     }
-
 }

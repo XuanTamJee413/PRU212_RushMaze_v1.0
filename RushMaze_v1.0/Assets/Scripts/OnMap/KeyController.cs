@@ -11,7 +11,7 @@ public class KeyController : MonoBehaviour
 
             PlayerDataManager.Instance.AddKey();
             Debug.Log("Đã nhặt Key! " + PlayerDataManager.Instance.PlayerData.Key);
-
+            UIManager.Instance.ModifyStats(key: 1);
 
             Destroy(gameObject);
             audioManager.PlayCoinSound();
