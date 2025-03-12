@@ -16,20 +16,34 @@ public class UIManager : MonoBehaviour
     public Image hpBar;
     public Image mpBar;
 
+    private static UIManager _instance;
+    public static UIManager Instance => _instance;
+
+    private PlayerData playerData;
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         LoadAndDisplay();
     }
 
-    // Tải và hiển thị dữ liệu nhân vật
     void LoadAndDisplay()
     {
-        PlayerData player = SaveSystem.LoadPlayer();
-
-        UpdateUI(player);
+        playerData = SaveSystem.LoadPlayer();
+        UpdateUI(playerData);
     }
 
-    // Cập nhật UI sau khi thay đổi dữ liệu
     public void UpdateUI(PlayerData player)
     {
         hpText.text = $"HP: {player.CurrentHp}/{player.MaxHp}";
@@ -44,4 +58,31 @@ public class UIManager : MonoBehaviour
         hpBar.fillAmount = (float)player.CurrentHp / player.MaxHp;
         mpBar.fillAmount = (float)player.CurrentMana / player.MaxMana;
     }
+
+    // ✅ Hàm thay đổi chỉ số và cập nhật UI
+    public void ModifyStats(int gold = 0, int hp = 0, int mana = 0, int exp = 0, int key = 0)
+    {
+        if (playerData == null)
+        {
+            Debug.LogWarning("⚠ Không có dữ liệu nhân vật! Gọi LoadAndDisplay() trước.");
+            return;
+        }
+
+        Debug.Log($"🔍 Trước khi cập nhật: Gold={playerData.Gold}, HP={playerData.CurrentHp}, Key={playerData.Key}");
+
+        playerData.Gold += gold;
+        playerData.CurrentHp = Mathf.Clamp(playerData.CurrentHp + hp, 0, playerData.MaxHp);
+        playerData.CurrentMana = Mathf.Clamp(playerData.CurrentMana + mana, 0, playerData.MaxMana);
+        playerData.Exp += exp;
+        playerData.Key += key;
+
+        Debug.Log($"✅ Sau khi cập nhật: Gold={playerData.Gold}, HP={playerData.CurrentHp}, Key={playerData.Key}");
+
+        // Cập nhật UI
+        UpdateUI(playerData);
+
+        // Lưu lại dữ liệu mới
+        SaveSystem.SavePlayer(playerData);
+    }
+
 }

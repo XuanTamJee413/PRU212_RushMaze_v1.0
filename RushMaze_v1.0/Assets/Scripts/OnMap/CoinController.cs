@@ -13,8 +13,8 @@ public class CoinController : MonoBehaviour
             
             PlayerDataManager.Instance.AddGold(100);
             Debug.Log("Nhặt coin! Gold hiện tại: " + PlayerDataManager.Instance.PlayerData.Gold);
+            UIManager.Instance.ModifyStats(gold: 10);
 
-            
             Destroy(gameObject);
             audioManager.PlayCoinSound();
         }
