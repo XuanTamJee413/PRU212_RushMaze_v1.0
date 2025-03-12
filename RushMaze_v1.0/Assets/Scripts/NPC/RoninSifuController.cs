@@ -7,7 +7,7 @@ public class RoninSifuController : MonoBehaviour
 {
     public GameObject RedSifuPanel; // Panel hội thoại
     public Text dialogueText;        // Text hiển thị lời thoại
-    public Button lvl1, lvl2, exitButton; 
+    public Button lvl1, lvl2, lvl3, lvl4, lvl5, exitButton; 
 
     private int currentStep = 0;
     private bool isDialogueActive = false;
@@ -19,6 +19,9 @@ public class RoninSifuController : MonoBehaviour
         // Gán sự kiện cho các nút
         lvl1.onClick.AddListener(LoadLevel1);
         lvl2.onClick.AddListener(LoadLevel2);
+        lvl3.onClick.AddListener(LoadLevel2);
+        lvl4.onClick.AddListener(LoadLevel2);
+        lvl5.onClick.AddListener(LoadLevel2);
         exitButton.onClick.AddListener(CloseDialogue);
     }
     public void LoadLevel1()
