@@ -10,7 +10,7 @@ public class MazeGenerator : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject monsterPrefab;
     public GameObject coinPrefab;
-    public GameObject keyPrefab; // Prefab chìa khóa
+    public GameObject keyPrefab; 
 
     public float cellSize = 3.0f;
     public float respawnTime = 10f;
