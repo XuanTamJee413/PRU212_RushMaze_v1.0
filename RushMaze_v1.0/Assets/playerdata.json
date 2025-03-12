@@ -1,13 +1,13 @@
 {
-    "MaxHp": 100,
-    "CurrentHp": 100,
-    "MaxMana": 50,
-    "CurrentMana": 45,
+    "MaxHp": 200,
+    "CurrentHp": 150,
+    "MaxMana": 200,
+    "CurrentMana": 0,
     "PositionX": 0.0,
     "PositionY": 0.0,
     "Power": 10,
     "Exp": 10,
     "Dame": 10,
-    "Gold": 1540,
-    "Key": 16
+    "Gold": 1850,
+    "Key": 17
 }

@@ -41,6 +41,8 @@ public class UIManager : MonoBehaviour
     void LoadAndDisplay()
     {
         playerData = SaveSystem.LoadPlayer();
+        playerData.CurrentMana =  playerData.MaxMana;
+        playerData.CurrentHp =  playerData.MaxHp;
         UpdateUI(playerData);
     }
 

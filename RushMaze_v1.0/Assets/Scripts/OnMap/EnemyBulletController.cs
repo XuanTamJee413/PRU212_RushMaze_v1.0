@@ -28,8 +28,6 @@ public class EnemyBulletController : MonoBehaviour
             if (playerData.CurrentHp <= 0)
             {
                 ShowDeathMenu();
-                //SceneManager.LoadScene("LobbyScene");
-                //return; 
             }
             
             SaveSystem.SavePlayer(playerData);

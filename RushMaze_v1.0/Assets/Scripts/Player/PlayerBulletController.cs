@@ -21,20 +21,8 @@ public class PlayerBulletController : MonoBehaviour
 
     public void SetDirection(Vector2 direction)
     {
-        uiManager = UIManager.Instance;
-        PlayerData playerData = SaveSystem.LoadPlayer();
-
-        if (playerData.CurrentMana < 5)
+        if (direction != Vector2.zero)
         {
-            return;
-        }
-        else
-        {
-            uiManager.ModifyStats(mana: -5);
-
-            playerData.CurrentMana -= 5;
-            SaveSystem.SavePlayer(playerData);
-
             GetComponent<Rigidbody2D>().linearVelocity = direction * bulletSpeed;
         }
     }

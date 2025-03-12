@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Data;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,11 +11,15 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator animator;
+    private UIManager uiManager;
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        uiManager = UIManager.Instance;
+
     }
 
     void Update()
@@ -26,18 +32,29 @@ public class PlayerController : MonoBehaviour
     }
     private void Shoot()
     {
-        // Tính toán vị trí chuột trên thế giới
+        if (SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "LobbyScene")
+        {
+            return;
+        }
+
+        PlayerData playerData = SaveSystem.LoadPlayer();
+        if (playerData.CurrentMana < 5)
+        {
+            return;  
+        }
+
+        uiManager.ModifyStats(mana: -5);
+        playerData.CurrentMana -= 5;
+        SaveSystem.SavePlayer(playerData);
+
         Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - firePoint.position).normalized;
 
-        // Tạo và bắn đạn
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
-        // Xoay đạn để bắn theo hướng chuột
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;  // Tính góc giữa vị trí chuột và người chơi
-        bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));  // Xoay đạn theo góc tính được
-
-        // Gán hướng di chuyển cho đạn
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        
         bullet.GetComponent<PlayerBulletController>().SetDirection(direction);
     }
 
