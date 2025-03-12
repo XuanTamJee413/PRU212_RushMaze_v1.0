@@ -13,15 +13,16 @@ public class AudioManager : MonoBehaviour
         PlayBackGroundMusic();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public void PlayBackGroundMusic()
     {
         backgroundAudioSource.clip = backGroundClip;
         backgroundAudioSource.Play();
+    }
+
+    public void PlayCoinSound()
+    {
+        effectAudioSource.PlayOneShot(coinClip);
     }
 }

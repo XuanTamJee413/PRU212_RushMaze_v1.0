@@ -18,7 +18,7 @@ TagManager:
   - Player
   - Enemy
   - Item
-  - 
+  - Key
   - 
   - 
   - 
@@ -67,6 +67,9 @@ TagManager:
     locked: 0
   - name: Point
     uniqueID: 879564119
+    locked: 0
+  - name: Key
+    uniqueID: 2566502723
     locked: 0
   m_RenderingLayers:
   - Default
