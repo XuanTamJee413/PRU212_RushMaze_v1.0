@@ -1,127 +1,54 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
-using System.Collections.Generic;
-using Unity.AI.Navigation;
 using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
-    //public GameObject enemyPrefab;
-    //public int enemyCount = 15;
-    //public MazeGenerator mazeGenerator;
-    //private List<Vector2> spawnPositions = new List<Vector2>();
-    //private List<GameObject> enemies = new List<GameObject>();
+    [Header("Attack Settings")]
+    [SerializeField] private GameObject bulletPrefab;   // Prefab của viên đạn
+    [SerializeField] private Transform firePoint;       // Vị trí bắn
+    [SerializeField] private float attackRange = 100f;    // Phạm vi bắn
+    [SerializeField] private float fireRate = 1.5f;     // Thời gian hồi chiêu
 
+    private Transform player;
+    private float nextFireTime = 0f;
 
-    //public GameObject goldPrefab; 
-    //private int clickCount = 0;
-    //private float clickTime = 0f;
-    //private float clickThreshold = 1f; 
-    //private float dropChance = 1f; 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
-    //void OnMouseDown()
-    //{
-    //    if (Time.time - clickTime > clickThreshold)
-    //    {
-    //        clickCount = 0; 
-    //    }
+    private void Update()
+    {
+        if (player == null) return;
 
-    //    clickTime = Time.time;
-    //    clickCount++;
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-    //    if (clickCount >= 3)
-    //    {
-    //        Destroy(gameObject);
-    //        TryDropGold();
-    //    }
-    //}
+        // Nếu người chơi trong phạm vi và đã đủ thời gian hồi chiêu thì bắn
+        if (distanceToPlayer <= attackRange && Time.time >= nextFireTime)
+        {
+            Shoot();
+            nextFireTime = Time.time + fireRate;
+        }
+    }
 
-    //private bool hasDroppedGold = false;
+    private void Shoot()
+    {
+        // Tính hướng bắn về phía người chơi
+        Vector2 shootDirection = (player.position - firePoint.position).normalized;
 
-    //void TryDropGold()
-    //{
-    //    if (hasDroppedGold) return; 
+        // Tạo viên đạn và đặt hướng di chuyển
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.transform.parent = null;
+        bullet.GetComponent<Rigidbody2D>().linearVelocity = shootDirection * 15f;// chỉnh tốc độ đạn
 
-    //    if (goldPrefab != null && Random.value < dropChance)
-    //    {
-    //        Instantiate(goldPrefab, transform.position, Quaternion.identity);
-    //        hasDroppedGold = true; 
-    //    }
-    //}
+        // Xoay viên đạn theo hướng bắn
+        float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+        bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
 
-
-
-
-    //IEnumerator Start()
-    //{
-    //    while (mazeGenerator == null || mazeGenerator.GetMaze() == null)
-    //    {
-    //        Debug.Log("Waiting for maze to be ready...");
-    //        yield return null;
-    //    }
-
-    //    GenerateEnemySpawns();
-    //    SpawnEnemies();
-    //}
-
-
-    //void GenerateEnemySpawns()
-    //{
-    //    int[,] maze = mazeGenerator.GetMaze();
-    //    int width = mazeGenerator.mazeWidth;
-    //    int height = mazeGenerator.mazeHeight;
-    //    Vector2 exitPos = new Vector2(mazeGenerator.exitX, mazeGenerator.exitY);
-
-    //    for (int x = 0; x < width; x++)
-    //    {
-    //        for (int y = 0; y < height; y++)
-    //        {
-    //            if (maze[x, y] == 0)
-    //            {
-    //                Vector2 pos = new Vector2(x, y);
-    //                if (Vector2.Distance(pos, exitPos) > 2)
-    //                {
-    //                    spawnPositions.Add(pos);
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
-
-    //void SpawnEnemies()
-    //{
-    //    System.Random rand = new System.Random();
-    //    int spawnLimit = Mathf.Min(enemyCount, spawnPositions.Count);
-
-    //    for (int i = 0; i < spawnLimit; i++)
-    //    {
-    //        int index = rand.Next(spawnPositions.Count);
-    //        Vector2 spawnPos = spawnPositions[index];
-    //        spawnPositions.RemoveAt(index);
-
-    //        Vector3 worldPos = new Vector3(spawnPos.x * mazeGenerator.pathWidth, spawnPos.y * mazeGenerator.pathWidth, 0);
-    //        GameObject enemy = Instantiate(enemyPrefab, worldPos, Quaternion.identity);
-    //        enemies.Add(enemy);
-
-    //        if (enemy.GetComponent<NavMeshAgent>() == null)
-    //        {
-    //            enemy.AddComponent<NavMeshAgent>(); 
-    //        }
-
-    //        enemy.GetComponent<NavMeshAgent>().speed = 2.0f;
-
-
-    //        enemy.GetComponent<SpriteRenderer>().sortingLayerName = "Enemy";
-            
-    //        enemy.AddComponent<EnemyController>();
-
-    //        //GameObject gold = Instantiate(goldPrefab, enemy.transform.position, Quaternion.identity);
-    //        //gold.transform.SetParent(enemy.transform);
-
-            
-    //    }
-
-    //}
-
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange); // Vẽ vùng bắn
+    }
 }
