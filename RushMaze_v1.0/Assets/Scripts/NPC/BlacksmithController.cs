@@ -19,22 +19,40 @@ public class BlacksmithController : MonoBehaviour
         // Gán sự kiện cho các nút
         lvl1.onClick.AddListener(LoadLevel1);
         lvl2.onClick.AddListener(LoadLevel2);
-        lvl3.onClick.AddListener(LoadLevel2);
-        lvl4.onClick.AddListener(LoadLevel2);
-        lvl5.onClick.AddListener(LoadLevel2);
-        exitButton.onClick.AddListener(CloseDialogue);
+        lvl3.onClick.AddListener(LoadLevel3);
+        lvl4.onClick.AddListener(LoadLevel4);
+        lvl5.onClick.AddListener(LoadLevel5);
+        exitButton.onClick.AddListener(CloseDialogue); ;
     }
     public void LoadLevel1()
     {
-        LevelData.SetLevelData(5, 5, 5, 10);
+        LevelData.SetLevelData(5, 5, 1, 5);
         Debug.Log($"LoadLevel1: {LevelData.MazeWidth}, {LevelData.MazeHeight}");
-        SceneManager.LoadScene("EnemyScene");
+        SceneManager.LoadScene("MazeScene");
     }
 
     public void LoadLevel2()
     {
-        LevelData.SetLevelData(20, 20, 10, 20);
-        SceneManager.LoadScene("EnemyScene");
+        LevelData.SetLevelData(7, 7, 3, 10);
+        SceneManager.LoadScene("MazeScene");
+    }
+
+    public void LoadLevel3()
+    {
+        LevelData.SetLevelData(9, 9, 7, 15);
+        SceneManager.LoadScene("MazeScene");
+    }
+
+    public void LoadLevel4()
+    {
+        LevelData.SetLevelData(11, 11, 9, 20);
+        SceneManager.LoadScene("MazeScene");
+    }
+
+    public void LoadLevel5()
+    {
+        LevelData.SetLevelData(13, 13, 11, 25);
+        SceneManager.LoadScene("MazeScene");
     }
 
 
