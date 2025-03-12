@@ -28,13 +28,31 @@ public class BlacksmithController : MonoBehaviour
     {
         LevelData.SetLevelData(5, 5, 5, 10);
         Debug.Log($"LoadLevel1: {LevelData.MazeWidth}, {LevelData.MazeHeight}");
-        SceneManager.LoadScene("EnemyScene");
+        SceneManager.LoadScene("MazeScene");
     }
 
     public void LoadLevel2()
     {
         LevelData.SetLevelData(20, 20, 10, 20);
-        SceneManager.LoadScene("EnemyScene");
+        SceneManager.LoadScene("MazeScene");
+    }
+
+    public void LoadLevel3()
+    {
+        LevelData.SetLevelData(25, 25, 10, 20);
+        SceneManager.LoadScene("MazeScene");
+    }
+
+    public void LoadLevel4()
+    {
+        LevelData.SetLevelData(30, 30, 10, 20);
+        SceneManager.LoadScene("MazeScene");
+    }
+
+    public void LoadLevel5()
+    {
+        LevelData.SetLevelData(35, 35, 10, 20);
+        SceneManager.LoadScene("MazeScene");
     }
 
 
