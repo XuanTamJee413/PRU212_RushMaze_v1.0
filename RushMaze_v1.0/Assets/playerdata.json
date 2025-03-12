@@ -2,7 +2,7 @@
     "MaxHp": 100,
     "CurrentHp": 100,
     "MaxMana": 50,
-    "CurrentMana": 50,
+    "CurrentMana": 0,
     "PositionX": 0.0,
     "PositionY": 0.0,
     "Power": 10,
