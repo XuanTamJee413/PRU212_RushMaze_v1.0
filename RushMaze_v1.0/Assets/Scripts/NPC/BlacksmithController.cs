@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Model;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BlacksmithController : MonoBehaviour
 {
-    public GameObject BlacksmithPanel;
-    public Text dialogueText;
-    public Button taskButton, storyButton, exitButton;
+    public GameObject BlacksmithPanel; // Panel hội thoại
+    public Text dialogueText;        // Text hiển thị lời thoại
+    public Button lvl1, lvl2, lvl3, lvl4, lvl5, exitButton;
 
     private int currentStep = 0;
     private bool isDialogueActive = false;
@@ -14,54 +16,47 @@ public class BlacksmithController : MonoBehaviour
     {
         BlacksmithPanel.SetActive(false);
 
-        taskButton.onClick.AddListener(OnTask);
-        storyButton.onClick.AddListener(OnStory);
+        // Gán sự kiện cho các nút
+        lvl1.onClick.AddListener(LoadLevel1);
+        lvl2.onClick.AddListener(LoadLevel2);
+        lvl3.onClick.AddListener(LoadLevel2);
+        lvl4.onClick.AddListener(LoadLevel2);
+        lvl5.onClick.AddListener(LoadLevel2);
         exitButton.onClick.AddListener(CloseDialogue);
     }
-
-    void OnMouseDown()
+    public void LoadLevel1()
     {
+        LevelData.SetLevelData(5, 5, 5, 10);
+        Debug.Log($"LoadLevel1: {LevelData.MazeWidth}, {LevelData.MazeHeight}");
+        SceneManager.LoadScene("EnemyScene");
+    }
+
+    public void LoadLevel2()
+    {
+        LevelData.SetLevelData(20, 20, 10, 20);
+        SceneManager.LoadScene("EnemyScene");
+    }
+
+
+    public void LoadLevelByName(string levelName)
+    {
+        // Load Scene theo tên
+        SceneManager.LoadScene(levelName);
+    }
+
+    void OnMouseDown() // Khi nhấp chuột vào NPC
+    {
+        Debug.Log("Bạn đã nhấn vào Blacksmith!");
         if (!isDialogueActive) OpenDialogue();
     }
 
     void OpenDialogue()
     {
         BlacksmithPanel.SetActive(true);
-        dialogueText.text = "Chào lữ khách! Cần ta rèn vũ khí cho ngươi không?";
         isDialogueActive = true;
     }
 
-    void OnTask()
-    {
-        dialogueText.text = "Nếu muốn thanh kiếm tốt nhất, hãy tìm cho ta Thiên Thạch và Hỏa Tinh.";
-    }
 
-    void OnStory()
-    {
-        if (currentStep == 0)
-        {
-            dialogueText.text = "Ta từng rèn một thanh kiếm đặc biệt cho một kiếm khách huyền thoại.";
-        }
-        else if (currentStep == 1)
-        {
-            dialogueText.text = "Thanh kiếm đó có thể cắt xuyên mọi thứ, nhưng chủ nhân của nó biến mất sau một trận chiến.";
-        }
-        else if (currentStep == 2)
-        {
-            dialogueText.text = "Có lời đồn rằng thanh kiếm vẫn còn trong mê cung mà ông ấy tạo ra.";
-        }
-        else if (currentStep == 3)
-        {
-            dialogueText.text = "Nếu ngươi tìm thấy nó, hãy sử dụng nó một cách khôn ngoan.";
-        }
-        else
-        {
-            currentStep = -1;
-            CloseDialogue();
-        }
-
-        currentStep++;
-    }
 
     void CloseDialogue()
     {

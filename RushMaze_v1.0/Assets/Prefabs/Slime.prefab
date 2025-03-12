@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3779887400592139379}
   - component: {fileID: 6275181866299776915}
   - component: {fileID: 5085847167987453733}
+  - component: {fileID: -968777463612971243}
   m_Layer: 8
   m_Name: Slime
   m_TagString: Enemy
@@ -226,6 +227,23 @@ NavMeshAgent:
   m_BaseOffset: 0.75
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-968777463612971243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717544629996642032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c246bb4b4a1af4baeb93b920b15d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  wallDetectionDistance: 0.5
 --- !u!1 &9100341815955464875
 GameObject:
   m_ObjectHideFlags: 0
