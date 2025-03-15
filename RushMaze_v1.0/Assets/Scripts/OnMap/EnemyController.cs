@@ -4,10 +4,10 @@ using System.Collections;
 public class EnemyController : MonoBehaviour
 {
     [Header("Attack Settings")]
-    [SerializeField] private GameObject bulletPrefab;   // Prefab của viên đạn
-    [SerializeField] private Transform firePoint;       // Vị trí bắn
-    [SerializeField] private float attackRange = 100f;    // Phạm vi bắn
-    [SerializeField] private float fireRate = 1.5f;     // Thời gian hồi chiêu
+    [SerializeField] private GameObject bulletPrefab;   
+    [SerializeField] private Transform firePoint;       
+    [SerializeField] private float attackRange = 100f;    
+    [SerializeField] private float fireRate = 1.5f;     
 
     private Transform player;
     private float nextFireTime = 0f;
@@ -23,7 +23,6 @@ public class EnemyController : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // Nếu người chơi trong phạm vi và đã đủ thời gian hồi chiêu thì bắn
         if (distanceToPlayer <= attackRange && Time.time >= nextFireTime)
         {
             Shoot();
@@ -33,15 +32,12 @@ public class EnemyController : MonoBehaviour
 
     private void Shoot()
     {
-        // Tính hướng bắn về phía người chơi
         Vector2 shootDirection = (player.position - firePoint.position).normalized;
 
-        // Tạo viên đạn và đặt hướng di chuyển
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         bullet.transform.parent = null;
-        bullet.GetComponent<Rigidbody2D>().linearVelocity = shootDirection * 15f;// chỉnh tốc độ đạn
+        bullet.GetComponent<Rigidbody2D>().linearVelocity = shootDirection * 15f;
 
-        // Xoay viên đạn theo hướng bắn
         float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
         bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
@@ -49,6 +45,6 @@ public class EnemyController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange); // Vẽ vùng bắn
+        Gizmos.DrawWireSphere(transform.position, attackRange); 
     }
 }

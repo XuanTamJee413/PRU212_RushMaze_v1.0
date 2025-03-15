@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5.0f;
-    [SerializeField] private GameObject bulletPrefab; // Gán Prefab của đạn
+    [SerializeField] private GameObject bulletPrefab; 
     [SerializeField] private Transform firePoint;
-    [SerializeField] private Camera mainCamera;      // Camera chính
+    [SerializeField] private Camera mainCamera;     
 
     private Rigidbody2D rb;
     private Animator animator;

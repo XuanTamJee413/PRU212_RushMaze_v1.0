@@ -15,7 +15,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void GoToLobbyScene()
     {
-        Time.timeScale = 1; // Trả lại tốc độ game
+        Time.timeScale = 1; 
         SceneManager.LoadScene("LobbyScene");
     }
 

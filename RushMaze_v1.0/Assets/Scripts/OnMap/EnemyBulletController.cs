@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement; // Thêm thư viện quản lý Scene
-using Assets.Data; // Đảm bảo đúng namespace của PlayerData & SaveSystem
+using Assets.Data; 
 
 public class EnemyBulletController : MonoBehaviour
 {
     [SerializeField] private float bulletDamage = 10f;
     [SerializeField] private float lifetime = 2f;
-    private const int DAMAGE_AMOUNT = 5; // Mỗi viên đạn gây 5 sát thương
+    private const int DAMAGE_AMOUNT = 5; 
     private UIManager uiManager;
 
 

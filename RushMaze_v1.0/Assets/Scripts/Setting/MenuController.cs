@@ -42,7 +42,6 @@ public class MenuController : MonoBehaviour
     }
     public void OptionsButton()
     {
-       // Debug.Log("Mở Cài Đặt: Âm thanh, đồ họa...");
         SceneManager.LoadScene("TestOptionScene");
     }
 

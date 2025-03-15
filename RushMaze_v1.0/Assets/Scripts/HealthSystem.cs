@@ -12,14 +12,12 @@ public class HealthSystem : MonoBehaviour
         UpdateHealthUI();
     }
 
-    // bi ban trung
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthUI();
     }
-    // phuogn thuc hoi mau
     public void Healing(float amount)
     {
         currentHealth += amount;
@@ -27,7 +25,6 @@ public class HealthSystem : MonoBehaviour
         UpdateHealthUI();
     }
 
-    // cap nhat UI cho thanh mau
     private void UpdateHealthUI()
     {
         healthSlider.value = currentHealth / maxHealth;
@@ -39,6 +36,6 @@ public class HealthSystem : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player died!");
-        gameObject.SetActive(false); // hide Player
+        gameObject.SetActive(false); 
     }
 }

@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -61,16 +62,15 @@ public class UIManager : MonoBehaviour
         mpBar.fillAmount = (float)player.CurrentMana / player.MaxMana;
     }
 
-    // ✅ Hàm thay đổi chỉ số và cập nhật UI
     public void ModifyStats(int gold = 0, int hp = 0, int mana = 0, int exp = 0, int key = 0)
     {
         if (playerData == null)
         {
-            Debug.LogWarning("⚠ Không có dữ liệu nhân vật! Gọi LoadAndDisplay() trước.");
+            Debug.LogWarning(" Không có dữ liệu nhân vật! Gọi LoadAndDisplay() trước.");
             return;
         }
 
-        Debug.Log($"🔍 Trước khi cập nhật: Gold={playerData.Gold}, HP={playerData.CurrentHp}, Key={playerData.Key}");
+        Debug.Log($" Trước khi cập nhật: Gold={playerData.Gold}, HP={playerData.CurrentHp}, Key={playerData.Key}");
 
         playerData.Gold += gold;
         playerData.CurrentHp = Mathf.Clamp(playerData.CurrentHp + hp, 0, playerData.MaxHp);
@@ -78,12 +78,10 @@ public class UIManager : MonoBehaviour
         playerData.Exp += exp;
         playerData.Key += key;
 
-        Debug.Log($"✅ Sau khi cập nhật: Gold={playerData.Gold}, HP={playerData.CurrentHp}, Key={playerData.Key}");
+        Debug.Log($" Sau khi cập nhật: Gold={playerData.Gold}, HP={playerData.CurrentHp}, Key={playerData.Key}");
 
-        // Cập nhật UI
         UpdateUI(playerData);
 
-        // Lưu lại dữ liệu mới
         SaveSystem.SavePlayer(playerData);
     }
 

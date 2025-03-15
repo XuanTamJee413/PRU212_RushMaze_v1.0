@@ -5,8 +5,8 @@ public class EnemyMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private LayerMask wallLayer; // Lớp tường để kiểm tra va chạm
-    [SerializeField] private float wallDetectionDistance = 0.5f; // Khoảng cách kiểm tra tường
+    [SerializeField] private LayerMask wallLayer; 
+    [SerializeField] private float wallDetectionDistance = 0.5f; 
 
     private Vector2 moveDirection;
 

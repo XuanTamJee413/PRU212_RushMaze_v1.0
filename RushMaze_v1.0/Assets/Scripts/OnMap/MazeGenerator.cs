@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Model;
+using System.Drawing;
+using UnityEngine.SceneManagement;
 
 public class MazeGenerator : MonoBehaviour
 {
@@ -23,6 +25,10 @@ public class MazeGenerator : MonoBehaviour
     private int[,] maze;
     private List<Vector2> floorPositions = new List<Vector2>();
     private Vector2 exitPosition;
+
+    private bool allCoinsCollected = false;
+    private bool keyCollected = false;
+    private int coinsCollectedCount = 0;
 
     void Start()
     {
@@ -179,6 +185,31 @@ public class MazeGenerator : MonoBehaviour
             int rand = Random.Range(0, dx.Length);
             (dx[i], dx[rand]) = (dx[rand], dx[i]);
             (dy[i], dy[rand]) = (dy[rand], dy[i]);
+        }
+    }
+
+    public void CollectCoin()
+    {
+        coinsCollectedCount++;
+        if (coinsCollectedCount >= coinCount)
+        {
+            allCoinsCollected = true;
+            TryToAdvanceLevel();
+        }
+    }
+
+    public void CollectKey()
+    {
+        keyCollected = true;
+        TryToAdvanceLevel();
+        Debug.Log("đã nhặt keyyyyyy");
+    }
+    void TryToAdvanceLevel()
+    {
+        if (allCoinsCollected && keyCollected)
+        {
+            LevelData.SetLevelData(width +3 , height+3, monsterCount+ 2, coinCount+ 2);
+            SceneManager.LoadScene("MazeScene");
         }
     }
 }
